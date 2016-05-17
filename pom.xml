@@ -46,7 +46,7 @@
 							<sourceRoot>src/main/java-generated</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/wsdl/Order.wsdl</wsdl>
+									<wsdl>${basedir}/src/main/resources/wsdl/Orders.wsdl</wsdl>
 								</wsdlOption>
 							</wsdlOptions>
 						</configuration>
