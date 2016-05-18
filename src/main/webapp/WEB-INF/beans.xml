@@ -10,12 +10,18 @@
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 
 	<context:component-scan base-package="br.com.contractfirstws" />
+	
+	<bean id="orderServiceSoapHeaderInInterceptor" class="br.com.contractfirstws.orders.OrderServiceSoapHeaderInInterceptor" />
 
 	<jaxws:endpoint id="helloWorld"
 		implementor="br.com.contractfirstws.HelloWorldImpl" address="/HelloWorld" />
 
 	<jaxws:endpoint id="orders"
 		implementor="br.com.contractfirstws.orders.DefaultOrdersEndpoint"
-		address="/services/orders" />
+		address="/services/orders" >
+		<jaxws:inInterceptors>
+			<ref bean="orderServiceSoapHeaderInInterceptor" />
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
 
 </beans>

@@ -2,6 +2,8 @@ package br.com.contractfirstws.orders;
 
 import static org.junit.Assert.assertTrue;
 
+import javax.xml.ws.soap.SOAPFaultException;
+
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.junit.After;
 import org.junit.Before;
@@ -45,6 +47,11 @@ public class DefaultOrdersEndpointTest {
 	public void testProcessOrderPlacementSuccess() {
 		OrderInquiryResponseType response = ordersService.processOrderPlacement(orderInquiryType);
 		assertTrue(response.getAccount().getAccountId() == 999);
+	}
+	
+	@Test(expected = SOAPFaultException.class)
+	public void testProcessOrderPlacementSuccessFailureInvalidParameter() throws Exception {
+		ordersService.processOrderPlacement(null);
 	}
 
 }
