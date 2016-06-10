@@ -9,7 +9,7 @@
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 
-	<context:component-scan base-package="br.com.contractfirstws" />
+	<context:component-scan base-package="br.com.contractfirstws.orders" />
 	
 	<bean id="orderServiceSoapHeaderInInterceptor" class="br.com.contractfirstws.orders.OrderServiceSoapHeaderInInterceptor" />
 
@@ -19,9 +19,9 @@
 	<jaxws:endpoint id="orders"
 		implementor="br.com.contractfirstws.orders.DefaultOrdersEndpoint"
 		address="/services/orders" >
-		<jaxws:inInterceptors>
+		<!-- <jaxws:inInterceptors>
 			<ref bean="orderServiceSoapHeaderInInterceptor" />
-		</jaxws:inInterceptors>
+		</jaxws:inInterceptors> -->
 	</jaxws:endpoint>
 
 </beans>
